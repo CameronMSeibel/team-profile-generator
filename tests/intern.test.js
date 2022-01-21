@@ -1,4 +1,3 @@
-const { describe, test, expect } = require("@jest/globals");
 const Intern = require("../lib/intern");
 
 describe("constructor", () => {

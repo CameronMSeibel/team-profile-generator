@@ -1,5 +1,3 @@
-const { describe, test, expect } = require("@jest/globals");
-const { exp } = require("prelude-ls");
 let Manager = require("../lib/manager");
 
 describe("constructor", () => {
