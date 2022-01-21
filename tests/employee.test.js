@@ -1,6 +1,5 @@
 const { expect } = require("@jest/globals");
 const { test } = require("jest-circus");
-const { exp } = require("prelude-ls");
 const { describe } = require("yargs");
 const Employee = require("../lib/employee")
 
@@ -8,10 +7,6 @@ describe("constructor", () => {
     test("should have id, name and email", () => {
         let employee = new Employee("Rob", "rob@email.net");
         expect(employee.id && employee.name && employee.email).toBeTruthy();
-    });
-    test("should have the 'Employee' role", () =>{
-        let employee = new Employee("Rob", "rob@email.net");
-        expect(employee.role).toEqual("Employee");
     });
     test("should provide a unique id to each employee", () => {
         let e1 = new Employee("Rob", "rob@email.net");
