@@ -1,7 +1,7 @@
 function generateCard(employee){
     let special = "";
     return`
-    <div class="col">
+    <div class="col shadow mb-3">
     <div class="card shadow" style="width: 16rem">
         <div class="card-header bg-primary text-white">
             <h5 class="card-title">Employee Name</h5>
@@ -27,12 +27,14 @@ function generatePage(cards){
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </head>
     <body>
-        <header class="bg-warning text-white">
+        <header class="bg-danger text-white text-center p-5 mb-5">
             <h1>My Team</h1>
         </header>
-        <main>
-            ${cards}
-        </main>
+        <main class="container">
+            <div class="row justify-content-center row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+                ${cards}
+			</div>
+		</main>
     </body>
 </html>`;
 }
