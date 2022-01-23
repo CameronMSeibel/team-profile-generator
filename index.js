@@ -1,9 +1,11 @@
-let Manager = require("./lib/manager");
-let Engineer = require("./lib/manager");
-let Intern = require("./lib/intern");
-let inquirer = require("inquirer");
+const Manager = require("./lib/manager");
+const Engineer = require("./lib/manager");
+const Intern = require("./lib/intern");
+const fs = require("fs");
+const inquirer = require("inquirer");
+const { generateCard, generatePage } = require("./src/templates");
 
-let questions = [
+const questions = [
     {
         type: "input",
         name: "name",
@@ -22,7 +24,7 @@ let questions = [
     }
 ];
 
-let roleQuestion = {
+const roleQuestion = {
     Engineer: {
         type: "input",
         name: "special",
@@ -40,7 +42,7 @@ let roleQuestion = {
     },
 }
 
-let constructors = {
+const constructors = {
     Engineer: new Engineer,
     Intern: new Intern,
     Manager: new Manager
@@ -69,6 +71,14 @@ function start(){
                 writePage();
             }
         });
+}
+
+function writePage(){
+    let cards = "";
+    for(let employee of employees){
+        cards += generateCard(employee);
+    }
+    fs.writeFile("./dist/team.html", generatePage(cards), (err) => err ? console.error(err) : console.log("Success!"));
 }
 
 start();
