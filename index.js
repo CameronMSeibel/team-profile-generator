@@ -43,9 +43,15 @@ const roleQuestion = {
 }
 
 const constructors = {
-    Engineer: new Engineer,
-    Intern: new Intern,
-    Manager: new Manager
+    Engineer: function(name, email, github){
+        return new Engineer(name, email, github);
+    },
+    Intern: function(name, email, school){
+        return new Intern(name, email, school);
+    },
+    Manager: function(name, email, office){
+        return new Manager(name, email, office);
+    }
 }
 
 let employees = [];
@@ -57,20 +63,21 @@ function start(){
             inquirer.prompt(roleQuestion[role])
                 .then((answers) => {
                     employees.push(constructors[role](name, email, answers.special));
+                    inquirer.prompt({
+                        type: "confirm",
+                        name: "continue",
+                        message: "Do you need to add another employee?"
+                    })
+                        .then((answers) => {
+                            if(answers.continue){
+                                ask();
+                            }else{
+                                writePage();
+                            }
+                        });
                 });
         });
-    inquirer.prompt({
-        type: "confirm",
-        name: "continue",
-        message: "Do you need to add another employee?"
-    })
-        .then((answers) => {
-            if(answers.continue){
-                ask();
-            }else{
-                writePage();
-            }
-        });
+    
 }
 
 function writePage(){
