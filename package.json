@@ -8,6 +8,7 @@
     "test": "tests"
   },
   "scripts": {
+    "start": "index.js",
     "test": "jest"
   },
   "repository": {
