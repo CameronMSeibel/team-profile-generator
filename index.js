@@ -70,7 +70,7 @@ function start(){
                     })
                         .then((answers) => {
                             if(answers.continue){
-                                ask();
+                                start();
                             }else{
                                 writePage();
                             }
