@@ -1,16 +1,26 @@
 function generateCard(employee){
     let special = "";
+    switch(employee.getRole()){
+        case "Engineer":
+            special = `Github <a href="github.com/${employee.getGithub()}">${employee.getGithub()}</a>`;
+            break;
+        case "Intern":
+            special = `School: ${employee.getSchool()}`;
+            break;
+        case "Manager":
+            special = `Office Number: ${employee.getOfficeNumber()}`;
+    }
     return`
-    <div class="col shadow mb-3">
-    <div class="card shadow" style="width: 16rem">
+<div class="col mb-3">
+    <div class="card shadow">
         <div class="card-header bg-primary text-white">
-            <h5 class="card-title">Employee Name</h5>
-            <p class="card-text">Employee Role</p>
+            <h5 class="card-title">${employee.getName()}</h5>
+            <p class="card-text">${employee.getRole()}</p>
         </div>
         <div class="card-body bg-light">
             <ul class="list-group">
-                <li class="list-group-item">ID: </li>
-                <li class="list-group-item">EMAIL: </li>
+                <li class="list-group-item">ID: ${employee.getId()}</li>
+                <li class="list-group-item">EMAIL: ${employee.getEmail()}</li>
                 <li class="list-group-item">${special}</li>
             </ul>
         </div>
