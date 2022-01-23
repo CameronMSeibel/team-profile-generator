@@ -2,7 +2,7 @@ function generateCard(employee){
     let special = "";
     switch(employee.getRole()){
         case "Engineer":
-            special = `Github <a href="github.com/${employee.getGithub()}">${employee.getGithub()}</a>`;
+            special = `Github: <a href="https://github.com/${employee.getGithub()}" target="_blank">${employee.getGithub()}</a>`;
             break;
         case "Intern":
             special = `School: ${employee.getSchool()}`;
@@ -20,7 +20,7 @@ function generateCard(employee){
         <div class="card-body bg-light">
             <ul class="list-group">
                 <li class="list-group-item">ID: ${employee.getId()}</li>
-                <li class="list-group-item">EMAIL: ${employee.getEmail()}</li>
+                <li class="list-group-item">EMAIL: <a href="mailto:${employee.getEmail()}" target="_blank">${employee.getEmail()}</a></li>
                 <li class="list-group-item">${special}</li>
             </ul>
         </div>
