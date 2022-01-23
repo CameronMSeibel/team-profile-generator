@@ -60,10 +60,8 @@ function start(){
     inquirer.prompt(questions)
         .then((answers) => {
             let {name, email, role} = answers;
-            console.log(role)
             inquirer.prompt(roleQuestion[role])
                 .then((answers) => {
-                    console.log(role)
                     employees.push(constructors[role](name, email, answers.special));
                     inquirer.prompt({
                         type: "confirm",
