@@ -24,7 +24,7 @@ To use this program, navigate to the directory where the application is installe
 and run `node index.js` or `npm start` to open the command line interface. Respond 
 to the prompts to create an HTML page consolidating your team members' contact
 info and roles. Additionally, the unit tests can be ran with the `npm test` command.
-An example of the program's output is included under the [`./example`](./example) directory in 
+An example of the program's output is included under the [`./dist`](./example) directory in 
 this repository. For a more in-depth guide refer to [this video](https://youtu.be/RLURQeEHNuQ).
 
 ## Questions
